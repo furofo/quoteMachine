@@ -9,6 +9,19 @@ function randomColor() {
     return 'rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');';
 }
 
+function randomQuote(quoteObj, quoteOrAuthor) { // takes quote object and returns it text or author depending on second arg
+        if(quoteOrAuthor == 'quote') {
+            return(quoteObj[Math.round(Math.random() * (quoteObj.length - 1))].quoteText);
+        }
+        else if (quoteOrAuthor == 'author'){
+            return (quoteObj[Math.round(Math.random() * (quoteObj.length - 1))].quoteAuthor);
+        }
+        else {
+            console.log('you need to put quote or author in second arg');
+        }
+}
+
+
 let quoteObj = [
     {
         quoteText: "This is first quote",
@@ -24,7 +37,6 @@ let quoteObj = [
     }
 ];
 
-console.log(quoteObj[1].quoteText);
 
 
 class QuoteContainer extends React.Component {
