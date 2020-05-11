@@ -9,7 +9,22 @@ function randomColor() {
     return 'rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');';
 }
 
-randomColor();
+let quoteObj = [
+    {
+        quoteText: "This is first quote",
+        quoteAuthor: "Dano",
+    },
+    {
+        quoteText: "This is second quote",
+        quoteAuthor: "furafo",
+    },
+    {
+        quoteText: "This is third quote",
+        quoteAuthor: "billy",
+    }
+];
+
+console.log(quoteObj[1].quoteText);
 
 
 class QuoteContainer extends React.Component {
