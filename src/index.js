@@ -1,6 +1,15 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+function randomColor() {
+    let rgbArr = [];
+    for(let i = 0; i < 3; i++) {
+        rgbArr.push(Math.round(Math.random() * 255));
+    }
+    console.log('rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');');
+    return 'rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');';
+}
 
+randomColor();
 
 
 class QuoteContainer extends React.Component {
