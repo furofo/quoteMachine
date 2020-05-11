@@ -8,17 +8,17 @@ function randomColor() {
     console.log('rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');');
     return 'rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');';
 }
+let text= <div id = "text"><p></p></div>
+function randomQuote(quoteObj) { // takes quote object and returns it text or author depending on second arg
+       let randNumber = Math.round(Math.random() * (quoteObj.length - 1));
+       let selectedObj = quoteObj[randNumber];
+       let quote = selectedObj.quoteText;
+       let author = selectedObj.quoteAuthor;
 
-function randomQuote(quoteObj, quoteOrAuthor) { // takes quote object and returns it text or author depending on second arg
-        if(quoteOrAuthor == 'quote') {
-            return(quoteObj[Math.round(Math.random() * (quoteObj.length - 1))].quoteText);
-        }
-        else if (quoteOrAuthor == 'author'){
-            return (quoteObj[Math.round(Math.random() * (quoteObj.length - 1))].quoteAuthor);
-        }
-        else {
-            console.log('you need to put quote or author in second arg');
-        }
+        text = <div id = "text"><p>{quote}</p></div>
+
+    
+   
 }
 
 
@@ -46,22 +46,21 @@ class QuoteContainer extends React.Component {
     render() {
         return (
          
-            <div id = "quoteBox">
+        <div id = "quoteBox">
                  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
 
-            <div id = "text">
-                <p>This should be text </p>
-            </div>
-
+            
+            {text}
 
             <div id = "author">
-
+                <p id = "innerAuthor"> Hello world!</p>
 
             </div>
 
 
             <div id = "new-quote">
+            <button>Quote</button>
 
             </div>
 
@@ -72,7 +71,7 @@ class QuoteContainer extends React.Component {
 
 
 
-            </div>
+        </div>
         )
     }
 }
