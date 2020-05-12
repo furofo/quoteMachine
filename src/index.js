@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import './style.css'; //imports index css styling file from same directory
 function randomColor() {
     let rgbArr = [];
     for(let i = 0; i < 3; i++) {
         rgbArr.push(Math.round(Math.random() * 255));
     }
     console.log('rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');');
-    return 'rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');';
+    //return 'rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');';
+   document.body.style.background = 'rgb(' +rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ')';
 }
 let text= <div id = "text"><p></p></div>
 
 
-
+document.body.style.background = 'rgb(0, 10, 40)';
 
 let quoteObj = [
     {
@@ -41,7 +43,8 @@ class QuoteContainer extends React.Component {
         this.randomQuote= this.randomQuote.bind(this);
     }
 
-    randomQuote() { // takes quote object and returns it text or author depending on second arg
+    randomQuote() {
+        randomColor(); // takes quote object and returns it text or author depending on second arg
         console.log('this rand?');
         let randNumber = Math.round(Math.random() * (quoteObj.length - 1));
         let selectedObj = quoteObj[randNumber];
@@ -64,17 +67,17 @@ class QuoteContainer extends React.Component {
 
 
             
-            <div id = "text">
+            <div id = "text" className = "center">
                 <p>{this.state.quote}</p>
             </div>
 
-            <div id = "author">
+            <div id = "author" className = "center">
                 <p id = "innerAuthor">{this.state.author}</p>
 
             </div>
 
 
-            <div id = "new-quote">
+            <div id = "new-quote" className = "center">
             <button onClick = {this.randomQuote}>Quote</button>
 
             </div>
