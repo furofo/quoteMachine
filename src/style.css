@@ -13,14 +13,24 @@ body {
 
 }
 #quoteBox {
+    
     background-color: white;
     width: 50%;
     height: 40%;
     
 }
+#text {
+    padding-top: 1.5em;
+    height: 30%;
+    align-items: flex-end;
+}
+#author {
+    height: 30%;
+    padding-top: 1.5em;
+}
 
 .center{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
 }

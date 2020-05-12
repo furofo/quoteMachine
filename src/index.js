@@ -12,8 +12,7 @@ function randomColor() {
 }
 let text= <div id = "text"><p></p></div>
 
-
-document.body.style.background = 'rgb(0, 10, 40)';
+document.body.style.background = 'rgb(0, 10, 40)'; // inital background color
 
 let quoteObj = [
     {
