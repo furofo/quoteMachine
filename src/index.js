@@ -6,9 +6,13 @@ function randomColor() {
     for(let i = 0; i < 3; i++) {
         rgbArr.push(Math.round(Math.random() * 255));
     }
+
+    let rgbColor = 'rgb(' +rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ')';
     console.log('rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');');
     //return 'rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');';
-   document.body.style.background = 'rgb(' +rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ')';
+   document.body.style.background = rgbColor;
+   document.getElementById('text').style.color = rgbColor;
+   document.getElementById('author').style.color = rgbColor;
 }
 let text= <div id = "text"><p></p></div>
 
@@ -77,7 +81,8 @@ class QuoteContainer extends React.Component {
 
 
             <div id = "new-quote" className = "center">
-            <button onClick = {this.randomQuote}>Quote</button>
+            <button onClick = {this.randomQuote}>New Quote</button>
+            <button> Tweet </button>
 
             </div>
 

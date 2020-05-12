@@ -23,6 +23,8 @@ body {
     padding-top: 1.5em;
     height: 30%;
     align-items: flex-end;
+    font-size: 2em;
+    
 }
 #author {
     height: 30%;
