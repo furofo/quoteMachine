@@ -9,17 +9,8 @@ function randomColor() {
     return 'rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');';
 }
 let text= <div id = "text"><p></p></div>
-function randomQuote(quoteObj) { // takes quote object and returns it text or author depending on second arg
-       let randNumber = Math.round(Math.random() * (quoteObj.length - 1));
-       let selectedObj = quoteObj[randNumber];
-       let quote = selectedObj.quoteText;
-       let author = selectedObj.quoteAuthor;
 
-        text = <div id = "text"><p>{quote}</p></div>
 
-    
-   
-}
 
 
 let quoteObj = [
@@ -37,12 +28,32 @@ let quoteObj = [
     }
 ];
 
+//randomQuote(quoteObj);
 
 
 class QuoteContainer extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            quote: ''
+        }
+        this.randomQuote= this.randomQuote.bind(this);
     }
+
+    randomQuote() { // takes quote object and returns it text or author depending on second arg
+        console.log('this rand?');
+        let randNumber = Math.round(Math.random() * (quoteObj.length - 1));
+        let selectedObj = quoteObj[randNumber];
+        let quote = selectedObj.quoteText;
+        let author = selectedObj.quoteAuthor;
+ 
+         
+         this.setState({
+             quote: quote,
+         });
+     
+        }
+    
     render() {
         return (
          
@@ -51,7 +62,9 @@ class QuoteContainer extends React.Component {
 
 
             
-            {text}
+            <div id = "text">
+                <p>{this.state.quote}</p>
+            </div>
 
             <div id = "author">
                 <p id = "innerAuthor"> Hello world!</p>
@@ -60,7 +73,7 @@ class QuoteContainer extends React.Component {
 
 
             <div id = "new-quote">
-            <button>Quote</button>
+            <button onClick = {this.randomQuote}>Quote</button>
 
             </div>
 
