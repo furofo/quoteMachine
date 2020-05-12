@@ -61,7 +61,7 @@ class QuoteContainer extends React.Component {
     
     render() {
         return (
-         
+    <div id = "wrapper">
         <div id = "quoteBox">
                  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
@@ -90,6 +90,7 @@ class QuoteContainer extends React.Component {
 
 
         </div>
+    </div>
         )
     }
 }
