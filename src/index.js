@@ -35,7 +35,8 @@ class QuoteContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            quote: ''
+            quote: '',
+            author: '',
         }
         this.randomQuote= this.randomQuote.bind(this);
     }
@@ -50,6 +51,7 @@ class QuoteContainer extends React.Component {
          
          this.setState({
              quote: quote,
+             author: author,
          });
      
         }
@@ -67,7 +69,7 @@ class QuoteContainer extends React.Component {
             </div>
 
             <div id = "author">
-                <p id = "innerAuthor"> Hello world!</p>
+                <p id = "innerAuthor">{this.state.author}</p>
 
             </div>
 
