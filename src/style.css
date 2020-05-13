@@ -43,3 +43,28 @@ body {
     padding: .4em;
     border-radius: 10px;
 }
+#container {
+    display: flex;
+    align-items: center;
+}
+#butwrapper1{
+    display: flex;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+    
+}
+#butwrapper2{
+    display: flex;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+    
+}
+#butwrapper3{
+    display: flex;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+    
+}
