@@ -83,14 +83,12 @@ class QuoteContainer extends React.Component {
             <div id = "new-quote" className = "center">
             <button onClick = {this.randomQuote}>New Quote</button>
             <button> Tweet </button>
+            <button>Tweet</button>
 
             </div>
 
 
-            <div id = "tweet-quote">
-
-            </div>
-
+           
 
 
         </div>
