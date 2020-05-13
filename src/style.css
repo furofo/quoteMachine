@@ -36,3 +36,10 @@ body {
     justify-content: center;
     align-items: baseline;
 }
+
+#butt {
+    color: white;
+    background: rgb(0, 10, 40);
+    padding: .4em;
+    border-radius: 10px;
+}

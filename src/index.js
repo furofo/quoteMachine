@@ -13,6 +13,7 @@ function randomColor() {
    document.body.style.background = rgbColor;
    document.getElementById('text').style.color = rgbColor;
    document.getElementById('author').style.color = rgbColor;
+   document.getElementById('butt').style.background = rgbColor;
 }
 let text= <div id = "text"><p></p></div>
 
@@ -81,9 +82,10 @@ class QuoteContainer extends React.Component {
 
 
             <div id = "new-quote" className = "center">
-            <button onClick = {this.randomQuote}>New Quote</button>
-            <button> Tweet </button>
-            <button>Tweet</button>
+            <button id = "butt" onClick = {this.randomQuote}>New Quote</button>
+            <a href = "#" id = "tweet-quote"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href = "#"><i class="fa fa-tumblr-square" aria-hidden="true"></i></a>
+            
 
             </div>
 
