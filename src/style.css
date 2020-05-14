@@ -15,8 +15,9 @@ body {
 #quoteBox {
     
     background-color: white;
-    width: 50%;
+    width: 65%;
     height: 40%;
+    padding-bottom: 1.9em;
     
 }
 #text {
@@ -24,6 +25,7 @@ body {
     height: 30%;
     align-items: flex-end;
     font-size: 2em;
+    text-align: center;
     
 }
 #author {
@@ -40,13 +42,17 @@ body {
 #butt {
     color: white;
     background: rgb(0, 10, 40);
-    padding: .4em;
+    padding: .25em;
     border-radius: 10px;
+}
+
+#butt:hover {
+    opacity: 0.8;
 }
 #container {
     display: flex;
     align-items: center;
-    
+    padding-bottom: 3em;
 }
 #butwrapper1{
     display: flex;
@@ -66,11 +72,47 @@ body {
 }
 
 #tweet-quote {
-    margin-left: 4em;
-    background-color: green;
-    padding: .2em;
+    margin-left: 2em;
+    background-color: rgb(0, 10, 40);
+    color: white;
+    padding: .5em;
 
 }
-#tumblr-quote {
-   margin-left: 1.5em;
+
+#tweet-quote:hover {
+    opacity: 0.7;
 }
+#tumblr-quote {
+   margin-left: 1em;
+   background-color: rgb(0, 10, 40);
+    color: white;
+    padding: .5em;
+}
+p {
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+}
+#tumblr-quote:hover {
+    opacity: 0.7;
+}
+
+@media only screen and (min-width: 800px) {
+    #tweet-quote {
+        font-size: 1.3em;
+        margin-left: 4em;
+        padding: .5em;
+    }
+    #tumblr-quote {
+        font-size: 1.3em;
+        margin-left: 1.5em;
+        padding: .5em;
+
+    }
+    #butt{
+        padding: 0.75em;
+    }
+    #quoteBox {
+        width: 50%;
+        height: 40%;
+    }
+  }

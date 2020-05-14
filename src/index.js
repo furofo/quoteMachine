@@ -14,6 +14,10 @@ function randomColor() {
    document.getElementById('text').style.color = rgbColor;
    document.getElementById('author').style.color = rgbColor;
    document.getElementById('butt').style.background = rgbColor;
+   document.getElementById('tweet-quote').style.background = rgbColor;
+   document.getElementById('tumblr-quote').style.background = rgbColor;
+   
+   
 }
 let text= <div id = "text"><p></p></div>
 
@@ -21,7 +25,7 @@ document.body.style.background = 'rgb(0, 10, 40)'; // inital background color
 
 let quoteObj = [
     {
-        quoteText: "This is first quote",
+        quoteText: "This is first quote lets make thi sa really long urn on sentence because sometimes authors like ot go on an on and on",
         quoteAuthor: "Dano",
     },
     {
@@ -83,10 +87,10 @@ class QuoteContainer extends React.Component {
 
             <div id = "container" >
             <div id = "butwrapper1">
-            <a href = "#" id = "tweet-quote"><i className="fa fa-twitter  fa-2x" aria-hidden="true"></i></a>
+            <a href = "#" id = "tweet-quote"><i className="fa fa-twitter" aria-hidden="true"></i></a>
          
             
-            <a href = "#" id = "tumblr-quote"><i className="fa fa-tumblr-square  fa-2x" aria-hidden="true"></i></a>
+            <a href = "#" id = "tumblr-quote"><i className="fa fa-tumblr-square" aria-hidden="true"></i></a>
             </div>
             <div id = "butwrapper3">
             <button id = "butt" onClick = {this.randomQuote}>New Quote</button>
