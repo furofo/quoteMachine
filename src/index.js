@@ -25,7 +25,7 @@ document.body.style.background = 'rgb(0, 10, 40)'; // inital background color
 
 let quoteObj = [
     {
-        quoteText: "This is first quote lets make thi sa really long urn on sentence because sometimes authors like ot go on an on and on",
+        quoteText: "This is first quote lets make thi sa really long urn on sentence because sometimes authors like ot go on an on and on and aon adfnas dafjsadlkfjs all thes epeopse",
         quoteAuthor: "Dano",
     },
     {
@@ -70,6 +70,7 @@ class QuoteContainer extends React.Component {
     render() {
         return (
     <div id = "wrapper">
+    <div id = "rel-wrapper">
         <div id = "quoteBox">
                  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
@@ -107,6 +108,7 @@ class QuoteContainer extends React.Component {
 
 
         </div>
+    </div>
     </div>
         )
     }
