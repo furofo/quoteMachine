@@ -1,7 +1,22 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import './style.css'; //imports index css styling file from same directory
+import $ from "jquery"
+function update(response) {
+    console.log('this is response');
+    console.log(response);
+    
+                            }
+
+function handleErr() {
+    console.log("error?");
+}
+
+
 function randomColor() {
+    $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?")
+     .done(update)
+    .fail(handleErr)
     let rgbArr = [];
     for(let i = 0; i < 3; i++) {
         rgbArr.push(Math.round(Math.random() * 255));
