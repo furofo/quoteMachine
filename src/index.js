@@ -2,9 +2,15 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import './style.css'; //imports index css styling file from same directory
 import $ from "jquery"
+
+let jsonStored;
 function update(response) {
-    console.log('this is response');
-    console.log(response);
+  //  console.log('this is response');
+   // console.log(response);
+    jsonStored = JSON.stringify(response);
+   // console.log("this is json stored");
+   // console.log(jsonStored);
+    return jsonStored;
     
                             }
 
@@ -13,7 +19,9 @@ function handleErr() {
 }
 
 
-function randomColor() {
+ let randomColor = () => {
+    //console.log('trying to figure out what htis is');
+    //console.log(this);
     $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?")
      .done(update)
     .fail(handleErr)
@@ -23,7 +31,7 @@ function randomColor() {
     }
 
     let rgbColor = 'rgb(' +rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ')';
-    console.log('rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');');
+   // console.log('rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');');
     //return 'rgb('+ rgbArr[0] + ', ' + rgbArr[1] + ', ' + rgbArr[2] + ');';
    document.body.style.background = rgbColor;
    document.getElementById('text').style.color = rgbColor;
@@ -60,29 +68,45 @@ class QuoteContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            quote: '',
+            quote: null,
             author: '',
         }
         this.randomQuote= this.randomQuote.bind(this);
     }
 
+    componentDidMount() {
+        $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?")
+     .done(response => {
+         console.log("this executed");
+         console.log(this);
+         console.log(response);
+         setTimeout(() => {this.setState({quote: response.quoteText, author: response.quoteAuthor});}, 500);
+         
+     })
+    .fail(handleErr)
+    }
+
     randomQuote() {
         randomColor(); // takes quote object and returns it text or author depending on second arg
-        console.log('this rand?');
+       // console.log('tryint go fiture out this confusing');
+        //console.log(jsonStored);
+       // console.log(this);
         let randNumber = Math.round(Math.random() * (quoteObj.length - 1));
         let selectedObj = quoteObj[randNumber];
-        let quote = selectedObj.quoteText;
-        let author = selectedObj.quoteAuthor;
+       // let quote = selectedObj.quoteText;
+        //let author = selectedObj.quoteAuthor;
  
          
-         this.setState({
-             quote: quote,
-             author: author,
-         });
+        // this.setState({
+             //quote: quote,
+             //author: author,
+        // });
      
         }
     
     render() {
+       
+        
         return (
     <div id = "wrapper">
     <div id = "rel-wrapper">
@@ -128,5 +152,6 @@ class QuoteContainer extends React.Component {
         )
     }
 }
+
 
 ReactDom.render(<QuoteContainer />, document.getElementById('root'));
