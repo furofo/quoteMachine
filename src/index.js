@@ -85,12 +85,33 @@ class QuoteContainer extends React.Component {
      })
     .fail(handleErr)
     }
+    
+    /* componentDidUpdate() {
+        $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?")
+        .done(response => {
+            console.log("this executed");
+            console.log(this);
+            console.log(response);
+            setTimeout(() => {this.setState({quote: response.quoteText, author: response.quoteAuthor});}, 500);
+            
+        })
+       .fail(handleErr)
+       } */
+    
 
     randomQuote() {
         randomColor(); // takes quote object and returns it text or author depending on second arg
        // console.log('tryint go fiture out this confusing');
         //console.log(jsonStored);
-       // console.log(this);
+        $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?")
+     .done(response => {
+         console.log("this executed");
+         console.log(this);
+         console.log(response);
+         setTimeout(() => {this.setState({quote: response.quoteText, author: response.quoteAuthor});}, 500);
+         
+     })
+    .fail(handleErr);
         let randNumber = Math.round(Math.random() * (quoteObj.length - 1));
         let selectedObj = quoteObj[randNumber];
        // let quote = selectedObj.quoteText;
