@@ -61,7 +61,22 @@ let quoteObj = [
     }
 ];
 
-//randomQuote(quoteObj);
+let linkFormatter = (quote) => {
+    let beginLink = 'https://twitter.com/intent/tweet?status=';
+    let endLink = '';
+    for(let i = 0; i < quote.length; i++) {
+        if(quote[i] == ' ') {
+            endLink += '%20';
+        }
+        else {
+            endLink += quote[i];
+        }
+    }
+
+    return beginLink + endLink;
+}
+console.log('testing link formatter');
+console.log(linkFormatter('Feeling and longing are the motive forces behind all human endeavor and human creations.'));
 
 
 class QuoteContainer extends React.Component {
@@ -70,6 +85,7 @@ class QuoteContainer extends React.Component {
         this.state = {
             quote: null,
             author: '',
+            link: '',
         }
         this.randomQuote= this.randomQuote.bind(this);
     }
@@ -80,7 +96,7 @@ class QuoteContainer extends React.Component {
          console.log("this executed");
          console.log(this);
          console.log(response);
-         setTimeout(() => {this.setState({quote: response.quoteText, author: response.quoteAuthor});}, 500);
+         setTimeout(() => {this.setState({quote: response.quoteText, author: response.quoteAuthor, link: ''});}, 500);
          
      })
     .fail(handleErr)
@@ -121,7 +137,7 @@ class QuoteContainer extends React.Component {
 
             <div id = "container" >
             <div id = "butwrapper1">
-            <a href = "twitter.com/intent/tweet" target = "_blank" id = "tweet-quote"><i className="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href = "https://twitter.com/intent/tweet?status=hello%20world" target = "_blank" id = "tweet-quote"><i className="fa fa-twitter" aria-hidden="true"></i></a>
             <a href = "#" id = "tumblr-quote"><i className="fa fa-tumblr-square" aria-hidden="true"></i></a>
             </div>
             <div id = "butwrapper3">
