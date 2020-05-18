@@ -36,7 +36,7 @@ function handleErr() {
    document.body.style.background = rgbColor;
    document.getElementById('text').style.color = rgbColor;
    document.getElementById('author').style.color = rgbColor;
-   document.getElementById('butt').style.background = rgbColor;
+   document.getElementById('new-quote').style.background = rgbColor;
    document.getElementById('tweet-quote').style.background = rgbColor;
    document.getElementById('tumblr-quote').style.background = rgbColor;
    
@@ -86,19 +86,6 @@ class QuoteContainer extends React.Component {
     .fail(handleErr)
     }
     
-    /* componentDidUpdate() {
-        $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?")
-        .done(response => {
-            console.log("this executed");
-            console.log(this);
-            console.log(response);
-            setTimeout(() => {this.setState({quote: response.quoteText, author: response.quoteAuthor});}, 500);
-            
-        })
-       .fail(handleErr)
-       } */
-    
-
     randomQuote() {
         randomColor(); // takes quote object and returns it text or author depending on second arg
        // console.log('tryint go fiture out this confusing');
@@ -114,28 +101,14 @@ class QuoteContainer extends React.Component {
     .fail(handleErr);
         let randNumber = Math.round(Math.random() * (quoteObj.length - 1));
         let selectedObj = quoteObj[randNumber];
-       // let quote = selectedObj.quoteText;
-        //let author = selectedObj.quoteAuthor;
- 
-         
-        // this.setState({
-             //quote: quote,
-             //author: author,
-        // });
-     
         }
     
     render() {
-       
-        
         return (
     <div id = "wrapper">
     <div id = "rel-wrapper">
-        <div id = "quoteBox">
+        <div id = "quote-box">
                  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
-
-
-            
             <div id = "text" className = "center">
                 <p>{this.state.quote}</p>
             </div>
@@ -148,31 +121,17 @@ class QuoteContainer extends React.Component {
 
             <div id = "container" >
             <div id = "butwrapper1">
-            <a href = "#" id = "tweet-quote"><i className="fa fa-twitter" aria-hidden="true"></i></a>
-         
-            
+            <a href = "twitter.com/intent/tweet" target = "_blank" id = "tweet-quote"><i className="fa fa-twitter" aria-hidden="true"></i></a>
             <a href = "#" id = "tumblr-quote"><i className="fa fa-tumblr-square" aria-hidden="true"></i></a>
             </div>
             <div id = "butwrapper3">
-            <button id = "butt" onClick = {this.randomQuote}>New Quote</button>
+            <button id = "new-quote" onClick = {this.randomQuote}>New Quote</button>
             </div>
-            
-            
-            
-            
-
             </div>
-
-
-           
-
-
         </div>
     </div>
     </div>
         )
     }
 }
-
-
 ReactDom.render(<QuoteContainer />, document.getElementById('root'));
