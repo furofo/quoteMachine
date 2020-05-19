@@ -3,6 +3,16 @@ import ReactDom from 'react-dom';
 import './style.css'; //imports index css styling file from same directory
 import $ from "jquery";
 let jsonStored;
+$(document).ready(function(){
+$("#new-quote").click(function(){
+   $('#text').fadeIn(2000);
+   $('#author').fadeIn(2000);
+   $('#new-quote').fadeIn(2000);
+   $('#tweet-quote').fadeIn(2000);
+   $('tumblr-quote').fadeIn(2000);
+   console.log("this worked???");
+});
+});
 function update(response) {
     jsonStored = JSON.stringify(response);
     return jsonStored; 
@@ -62,7 +72,12 @@ class QuoteContainer extends React.Component {
         $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?")
          .done(response => {
          setTimeout(() => {this.setState({quote: response.quoteText, author: response.quoteAuthor});
-                            randomColor(); }, 500);    
+                            randomColor(); 
+                             $('#text').hide().fadeIn(2000);
+                             $('#author').hide().fadeIn(2000);
+                             $('#new-quote').hide().fadeIn(2000);
+                             $('#tweet-quote').hide().fadeIn(2000);
+                             $('#tumblr-quote').hide().fadeIn(2000);}, 500);    
      })
     .fail(handleErr);
         console.log("failed?");
