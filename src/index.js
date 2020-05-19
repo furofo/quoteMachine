@@ -12,10 +12,7 @@ function handleErr() {
     console.log("error?");
 }
 
- let randomColor = () => {
-    $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?")
-     .done(update)
-     .fail(handleErr)
+ let randomColor = () => { // generates random rgb color from full spectrum of colors and assigns it to everything
     let rgbArr = [];
     for(let i = 0; i < 3; i++) {
         rgbArr.push(Math.round(Math.random() * 255));
@@ -61,10 +58,11 @@ class QuoteContainer extends React.Component {
     .fail(handleErr)
     }
     randomQuote() {
-        randomColor(); 
+       
         $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?")
          .done(response => {
-         setTimeout(() => {this.setState({quote: response.quoteText, author: response.quoteAuthor});}, 500);    
+         setTimeout(() => {this.setState({quote: response.quoteText, author: response.quoteAuthor});
+                            randomColor(); }, 500);    
      })
     .fail(handleErr);
         console.log("failed?");
