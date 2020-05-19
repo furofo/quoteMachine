@@ -47,6 +47,11 @@ body {
     align-items: baseline;
 }
 
+i {
+    display: inline-block;
+    
+}
+
 #new-quote {
     color: white;
     background: rgb(0, 10, 40);
