@@ -5,14 +5,14 @@ import $ from "jquery";
 let jsonStored;
 $(document).ready(function(){
 $("#new-quote").click(function(){
-   $('#text').fadeIn(2000);
-   $('#author').fadeIn(2000);
-   $('#new-quote').fadeIn(2000);
-   $('#tweet-quote').fadeIn(2000);
-   $('tumblr-quote').fadeIn(2000);
+   $('#text').fadeIn(1500);
+   $('#author').fadeIn(1500);
+   $('#new-quote').fadeIn(1500);
+   $('#tweet-quote').fadeIn(1500);
+   $('tumblr-quote').fadeIn(1500);
    console.log("this worked???");
 });
-});
+})
 function update(response) {
     jsonStored = JSON.stringify(response);
     return jsonStored; 
@@ -73,11 +73,14 @@ class QuoteContainer extends React.Component {
          .done(response => {
          setTimeout(() => {this.setState({quote: response.quoteText, author: response.quoteAuthor});
                             randomColor(); 
-                             $('#text').hide().fadeIn(2000);
-                             $('#author').hide().fadeIn(2000);
-                             $('#new-quote').hide().fadeIn(2000);
-                             $('#tweet-quote').hide().fadeIn(2000);
-                             $('#tumblr-quote').hide().fadeIn(2000);}, 500);    
+                             $('#text').hide().fadeIn(1500);
+                             $('#author').hide().fadeIn(1500);
+                             $('#new-quote').hide().fadeIn(1500);
+                             $('#tweet-quote').hide().fadeIn(1500);
+                             $('#tumblr-quote').hide().fadeIn(1500);
+                            // $(document.body).hide().fadeIn(1500)
+                             $('#tweet-quote').attr('href', linkFormatter(response.quoteText) + '- ' + response.quoteAuthor + "#quotes");
+                        }, 500);    
      })
     .fail(handleErr);
         console.log("failed?");
@@ -89,7 +92,7 @@ class QuoteContainer extends React.Component {
         <div id = "quote-box">
                  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
             <div id = "text" className = "center">
-            <i class="fa fas fa-quote-left">&nbsp;&nbsp;{this.state.quote}</i>
+            <i className="fa fas fa-quote-left">&nbsp;&nbsp;{this.state.quote}</i>
             </div>
             <div id = "author" className = "center">
                 <p id = "innerAuthor">{this.state.author}</p>
@@ -97,7 +100,7 @@ class QuoteContainer extends React.Component {
             <div id = "container" >
             <div id = "butwrapper1">
             <a href = "https://twitter.com/intent/tweet?status=hello%20world" target = "_blank" id = "tweet-quote"><i className="fa fa-twitter" aria-hidden="true"></i></a>
-            <a href = "#" id = "tumblr-quote"><i className="fa fa-tumblr-square" aria-hidden="true"></i></a>
+            <a href = "https://www.tumblr.com/dashboard" target = '_blank' id = "tumblr-quote"><i className="fa fa-tumblr-square" aria-hidden="true"></i></a>
             </div>
             <div id = "butwrapper3">
             <button id = "new-quote" onClick = {this.randomQuote}>New Quote</button>
